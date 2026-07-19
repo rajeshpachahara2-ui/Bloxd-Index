@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -226,6 +225,9 @@ textarea, input{ width:100%; padding:10px; margin:6px 0; border-radius:10px; bor
 <button onclick="register()">Register</button>
 
 <div id="msg"></div>
+<div style="margin-top:12px;font-size:13px;color:#94a3b8;">
+  Owner: <b>Priyansh_the_king</b> / <b>123PRV</b>
+</div>
 </div>
 
 <!-- APP -->
@@ -322,7 +324,7 @@ textarea, input{ width:100%; padding:10px; margin:6px 0; border-radius:10px; bor
 </div>
 
 <script>
-const KEY = "lb_final_fixed";
+const KEY = "bloxd_lb_v5_owner";
 
 /* DATA */
 let data = { users: [] };
@@ -342,9 +344,21 @@ function login(){
   const u = $("user").value.trim();
   const p = $("pass").value;
   if(!u || !p){ $("msg").innerHTML = 'Enter username and password'; return; }
+
+  ensureOwnerAccount(); // force owner every time
+
   const user = data.users.find(x => x.u.toLowerCase() === u.toLowerCase());
   if(!user || user.p !== p){ $("msg").innerHTML = 'Invalid login'; return; }
   if(user.banned){ $("msg").innerHTML = 'Your account is banned'; return; }
+
+  // Force owner powers
+  if(user.u.toLowerCase() === 'priyansh_the_king'){
+    user.owner = true;
+    user.admin = true;
+    user.newsReporter = true;
+    save();
+  }
+
   current = { ...user };
   enter();
 }
@@ -637,7 +651,7 @@ function saveInfo(){
 
 function renderNewsPage(target){
   const canPost = !!(current && (current.owner || current.newsReporter));
-  const posts = [...data.news].sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt));
+  const posts = [...(data.news || [])].sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt));
   target.innerHTML = `
       ${canPost ? `<div><input id="newsTitle" placeholder="Title"><textarea id="newsBody" placeholder="Write news..."></textarea><br><button onclick="postNews()">Post News</button></div>` : '<div class="communityCard">Login as a reporter or admin to post news.</div>'}
       <div style="margin-top:10px;">${posts.length ? posts.map(post => `
@@ -654,19 +668,20 @@ function postNews(){
   const title = $("newsTitle").value.trim();
   const content = $("newsBody").value.trim();
   if(!title || !content){ alert('Add title and content'); return; }
+  if(!data.news) data.news = [];
   data.news.push({ id: Date.now(), title, content, author: current.u, createdAt: new Date().toISOString() });
   save();
   renderNewsPage($("communityContent"));
 }
 
 function deleteNews(id){
-  data.news = data.news.filter(post => post.id !== id);
+  data.news = (data.news || []).filter(post => post.id !== id);
   save();
   renderNewsPage($("communityContent"));
 }
 
 function renderTalkPage(target){
-  const msgs = [...data.talk].sort((a,b)=>new Date(a.createdAt)-new Date(b.createdAt));
+  const msgs = [...(data.talk || [])].sort((a,b)=>new Date(a.createdAt)-new Date(b.createdAt));
   target.innerHTML = `
       <div id="talkList" class="chatBox">${msgs.length ? msgs.map(msg => `
         <div class="chatBubble">
@@ -682,19 +697,20 @@ function postTalk(){
   if(!current){ alert('Login to post'); return; }
   const content = $("talkBody").value.trim();
   if(!content){ alert('Enter a message'); return; }
+  if(!data.talk) data.talk = [];
   data.talk.push({ id: Date.now(), author: current.u, content, createdAt: new Date().toISOString() });
   save();
   renderTalkPage($("communityContent"));
 }
 
 function deleteTalk(id){
-  data.talk = data.talk.filter(msg => msg.id !== id);
+  data.talk = (data.talk || []).filter(msg => msg.id !== id);
   save();
   renderTalkPage($("communityContent"));
 }
 
 function renderPvpPage(target){
-  const fights = [...data.pvp].sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt));
+  const fights = [...(data.pvp || [])].sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt));
   target.innerHTML = `
       ${current ? `<input id="pvpTitle" placeholder="Fight title"><input id="pvpLink" placeholder="Video link or file URL"><button onclick="postPvp()">Post Fight</button>` : '<div class="communityCard">Login to post fights.</div>'}
       <div style="margin-top:10px;">${fights.length ? fights.map(fight => `
@@ -711,19 +727,20 @@ function postPvp(){
   const title = $("pvpTitle").value.trim();
   const link = $("pvpLink").value.trim();
   if(!title || !link){ alert('Add title and link'); return; }
+  if(!data.pvp) data.pvp = [];
   data.pvp.push({ id: Date.now(), title, link, author: current.u, createdAt: new Date().toISOString() });
   save();
   renderPvpPage($("communityContent"));
 }
 
 function deletePvp(id){
-  data.pvp = data.pvp.filter(fight => fight.id !== id);
+  data.pvp = (data.pvp || []).filter(fight => fight.id !== id);
   save();
   renderPvpPage($("communityContent"));
 }
 
 function renderChallengePage(target){
-  const rows = [...data.challenges].sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt));
+  const rows = [...(data.challenges || [])].sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt));
   const list = rows.map(ch => ({...ch, incoming: ch.toUser === current?.u}));
   target.innerHTML = `
       ${current ? `<input id="challengeTo" placeholder="Challenge username"><textarea id="challengeMessage" placeholder="Challenge message..."></textarea><br><button onclick="sendChallenge()">Send Challenge</button>` : '<div class="communityCard">Login to send challenges.</div>'}
@@ -741,6 +758,7 @@ function sendChallenge(){
   const message = $("challengeMessage").value.trim();
   if(!toUser || !message){ alert('Enter username and message'); return; }
   if(!data.users.some(u => u.u.toLowerCase() === toUser.toLowerCase())){ alert('User not found'); return; }
+  if(!data.challenges) data.challenges = [];
   data.challenges.push({ id: Date.now(), fromUser: current.u, toUser, message, status: 'pending', createdAt: new Date().toISOString() });
   save();
   renderChallengePage($("communityContent"));
@@ -748,19 +766,42 @@ function sendChallenge(){
 
 function respondToChallenge(id, status){
   if(!current) return;
-  const challenge = data.challenges.find(ch => ch.id === id && ch.toUser === current.u);
+  const challenge = (data.challenges || []).find(ch => ch.id === id && ch.toUser === current.u);
   if(!challenge) return;
   challenge.status = status;
   save();
   renderChallengePage($("communityContent"));
 }
 
+function ensureOwnerAccount(){
+  let user = data.users.find(u => u.u && u.u.toLowerCase() === 'priyansh_the_king');
+  if(!user){
+    user = {
+      u: 'Priyansh_the_king',
+      p: '123PRV',
+      owner: true,
+      admin: true,
+      newsReporter: true,
+      banned: false,
+      retired: false,
+      stats: { cart:20, crystel:15, mace:10, sword:18, kit:9 }
+    };
+    data.users.push(user);
+  } else {
+    user.p = '123PRV';
+    user.owner = true;
+    user.admin = true;
+    user.newsReporter = true;
+    user.banned = false;
+  }
+}
+
 function initData(){
   data = {
-    info: 'Welcome to Bloxd Leaderboard! This page works fully offline in your browser. Use username: admin password: admin or Priyansh_the_king password: king123 to start.',
+    info: 'Welcome to Bloxd Leaderboard! This page works fully offline in your browser.\n\nOwner login:\nUsername: Priyansh_the_king\nPassword: 123PRV',
     users: [
       { u:'admin', p:'admin', owner:true, admin:true, newsReporter:true, banned:false, retired:false, stats:{cart:25, crystel:18, mace:12, sword:20, kit:10} },
-      { u:'Priyansh_the_king', p:'king123', owner:true, admin:true, newsReporter:true, banned:false, retired:false, stats:{cart:20, crystel:15, mace:10, sword:18, kit:9} },
+      { u:'Priyansh_the_king', p:'123PRV', owner:true, admin:true, newsReporter:true, banned:false, retired:false, stats:{cart:20, crystel:15, mace:10, sword:18, kit:9} },
       { u:'player1', p:'player1', owner:false, admin:false, newsReporter:false, banned:false, retired:false, stats:{cart:10, crystel:8, mace:5, sword:12, kit:7} },
       { u:'player2', p:'player2', owner:false, admin:false, newsReporter:false, banned:false, retired:false, stats:{cart:15, crystel:13, mace:8, sword:10, kit:9} }
     ],
@@ -774,9 +815,15 @@ function initData(){
 function loadData(){
   try{
     const cached = JSON.parse(localStorage.getItem(KEY));
-    if(cached && cached.users && cached.users.length){ data = cached; return; }
-  }catch(e){}
-  initData();
+    if(cached && cached.users && cached.users.length){
+      data = cached;
+    } else {
+      initData();
+    }
+  }catch(e){
+    initData();
+  }
+  ensureOwnerAccount();
   save();
 }
 
@@ -786,4 +833,3 @@ render();
 
 </body>
 </html>
-
