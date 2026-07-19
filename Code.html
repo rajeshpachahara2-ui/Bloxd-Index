@@ -24,7 +24,6 @@ body{
   overflow-x:hidden;
 }
 
-/* animated background */
 body::before{
   content:"";
   position:fixed;
@@ -58,23 +57,15 @@ body::before{
 }
 
 @keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(20px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
 }
 
-/* LOGIN */
 .loginBox{
   max-width:420px;
   margin:40px auto;
 }
 
-/* BUTTONS */
 button{
   background:rgba(0,191,255,0.08);
   border:1px solid rgba(0,191,255,0.35);
@@ -98,7 +89,6 @@ button.active{
   box-shadow:0 0 14px rgba(0,191,255,.7);
 }
 
-/* INPUT */
 input{
   width:92%;
   padding:10px;
@@ -115,7 +105,6 @@ input:focus{
   box-shadow:0 0 12px rgba(0,191,255,0.4);
 }
 
-/* TABLE */
 table{
   width:100%;
   border-collapse:collapse;
@@ -126,52 +115,24 @@ td,th{
   border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
-tr{
-  transition:.2s;
-}
-
-tr:hover{
-  background:rgba(0,191,255,0.08);
-}
+tr{transition:.2s;}
+tr:hover{background:rgba(0,191,255,0.08);}
 
 th{
   color:var(--muted);
   text-align:left;
 }
 
-.hidden{
-  display:none;
-}
+.hidden{display:none;}
 
 .rank{
   font-size:12px;
   color:var(--muted);
 }
 
-.arrowBtn{
-  padding:2px 8px;
-  margin:0 3px;
-  color:#00bfff;
-}
-
-/* TOP 3 GLOW */
-.gold{
-  box-shadow:0 0 18px rgba(255,215,0,0.35);
-}
-
-.silver{
-  box-shadow:0 0 18px rgba(192,192,192,0.30);
-}
-
-.bronze{
-  box-shadow:0 0 18px rgba(205,127,50,0.30);
-}
-
-/* RETIRED / BAN */
-.retired{
-  color:orange;
-  font-size:12px;
-}
+.gold{box-shadow:0 0 18px rgba(255,215,0,0.35);}
+.silver{box-shadow:0 0 18px rgba(192,192,192,0.30);}
+.bronze{box-shadow:0 0 18px rgba(205,127,50,0.30);}
 
 .tab{
   display:flex;
@@ -180,7 +141,6 @@ th{
   margin-bottom:15px;
 }
 
-/* profile button */
 .profileBtn{
   position:absolute;
   right:18px;
@@ -193,20 +153,62 @@ th{
   top:18px;
 }
 
-/* AI box */
-.aiBox{ margin-top:15px; padding:14px; border-radius:14px; background:rgba(0,191,255,0.08); border:1px solid rgba(0,191,255,0.2); animation:pulse 2s infinite; }
-@keyframes pulse{ 0%{box-shadow:0 0 0 rgba(0,191,255,0);} 50%{box-shadow:0 0 20px rgba(0,191,255,.25);} 100%{box-shadow:0 0 0 rgba(0,191,255,0);} }
-.aiTitle{ color:#00bfff; font-weight:bold; margin-bottom:6px; }
-.bottomNav{ display:flex; gap:8px; flex-wrap:wrap; margin-top:16px; }
-.communityPage{ margin-top:12px; padding:12px; border:1px solid rgba(0,191,255,0.2); border-radius:14px; background:rgba(255,255,255,0.04); }
-.communityItem,.communityCard{ padding:10px; border-radius:10px; background:rgba(0,191,255,0.07); margin-bottom:8px; }
-.small{ font-size:12px; color:var(--muted); }
-textarea, input{ width:100%; padding:10px; margin:6px 0; border-radius:10px; border:1px solid rgba(0,191,255,0.25); background:rgba(255,255,255,0.05); color:var(--text); }
-.chatBox{ max-height:420px; overflow:auto; display:flex; flex-direction:column; gap:8px; padding:8px; background:rgba(0,0,0,0.15); border-radius:12px; }
-.chatBubble{ padding:8px 10px; border-radius:12px; background:rgba(0,191,255,0.12); }
-.chatBubble strong{ color:#7dd3fc; }
-.fullPageCommunity{ position:fixed; inset:0; background:rgba(3,7,18,0.96); z-index:999; overflow:auto; padding:20px; }
-.fullPageCommunity .card{ max-width:900px; margin:20px auto; }
+.aiBox{
+  margin-top:15px;
+  padding:14px;
+  border-radius:14px;
+  background:rgba(0,191,255,0.08);
+  border:1px solid rgba(0,191,255,0.2);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 rgba(0,191,255,0);}
+  50%{box-shadow:0 0 20px rgba(0,191,255,.25);}
+  100%{box-shadow:0 0 0 rgba(0,191,255,0);}
+}
+.aiTitle{color:#00bfff;font-weight:bold;margin-bottom:6px;}
+.bottomNav{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;}
+.communityItem,.communityCard{
+  padding:10px;
+  border-radius:10px;
+  background:rgba(0,191,255,0.07);
+  margin-bottom:8px;
+}
+.small{font-size:12px;color:var(--muted);}
+textarea, input{
+  width:100%;
+  padding:10px;
+  margin:6px 0;
+  border-radius:10px;
+  border:1px solid rgba(0,191,255,0.25);
+  background:rgba(255,255,255,0.05);
+  color:var(--text);
+}
+.chatBox{
+  max-height:420px;
+  overflow:auto;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding:8px;
+  background:rgba(0,0,0,0.15);
+  border-radius:12px;
+}
+.chatBubble{
+  padding:8px 10px;
+  border-radius:12px;
+  background:rgba(0,191,255,0.12);
+}
+.chatBubble strong{color:#7dd3fc;}
+.fullPageCommunity{
+  position:fixed;
+  inset:0;
+  background:rgba(3,7,18,0.96);
+  z-index:999;
+  overflow:auto;
+  padding:20px;
+}
+.fullPageCommunity .card{max-width:900px;margin:20px auto;}
 </style>
 </head>
 
@@ -216,134 +218,138 @@ textarea, input{ width:100%; padding:10px; margin:6px 0; border-radius:10px; bor
 
 <!-- LOGIN -->
 <div id="auth" class="card loginBox">
-<h2>Login / Register</h2>
-
-<input id="user" placeholder="username">
-<input id="pass" type="password" placeholder="password">
-
-<button onclick="login()">Login</button>
-<button onclick="register()">Register</button>
-
-<div id="msg"></div>
+  <h2>Login / Register</h2>
+  <input id="user" placeholder="username">
+  <input id="pass" type="password" placeholder="password">
+  <button onclick="login()">Login</button>
+  <button onclick="register()">Register</button>
+  <div id="msg" style="margin-top:10px;color:#94a3b8;"></div>
+  <div style="margin-top:14px;font-size:13px;color:#94a3b8;">
+    Owner login:<br>
+    <b>Priyansh_the_king</b> / <b>123PRV</b>
+  </div>
 </div>
 
 <!-- APP -->
 <div id="app" class="hidden">
+  <div class="card">
+    <button class="adminBtn hidden" id="adminBtn" onclick="openAdminPage()">🛡 Admin</button>
+    <button class="profileBtn" onclick="openProfile()">👤 Profile</button>
 
-<div class="card">
+    <h2>⚔ Bloxd Leaderboard</h2>
 
-<button class="adminBtn hidden" id="adminBtn" onclick="openAdminPage()">🛡 Admin</button>
-<button class="profileBtn" onclick="openProfile()">👤 Profile</button>
+    <div class="tab">
+      <button id="overallBtn" onclick="setTab('overall')">Overall</button>
+      <button id="cartBtn" onclick="setTab('cart')">Cart</button>
+      <button id="crystelBtn" onclick="setTab('crystel')">Crystel</button>
+      <button id="maceBtn" onclick="setTab('mace')">Mace</button>
+      <button id="swordBtn" onclick="setTab('sword')">Sword</button>
+      <button id="kitBtn" onclick="setTab('kit')">Kit</button>
+    </div>
 
-<h2>⚔ Bloxd Leaderboard</h2>
+    <input id="search" placeholder="Search player..." oninput="render()">
 
-<div class="tab">
-<button id="overallBtn" onclick="setTab('overall')">Overall</button>
-<button id="cartBtn" onclick="setTab('cart')">Cart</button>
-<button id="crystelBtn" onclick="setTab('crystel')">Crystel</button>
-<button id="maceBtn" onclick="setTab('mace')">Mace</button>
-<button id="swordBtn" onclick="setTab('sword')">Sword</button>
-<button id="kitBtn" onclick="setTab('kit')">Kit</button>
-</div>
+    <table>
+      <thead id="tableHead"></thead>
+      <tbody id="board"></tbody>
+    </table>
 
-<input id="search" placeholder="Search player..." oninput="render()">
+    <div class="aiBox">
+      <div class="aiTitle">🤖 AI PvP Analysis</div>
+      <div id="aiText">Loading AI analysis...</div>
+    </div>
 
-<table>
-<thead id="tableHead"></thead>
-<tbody id="board"></tbody>
-</table>
+    <div class="bottomNav">
+      <button onclick="showCommunityPage('info')">ℹ Info</button>
+      <button onclick="showCommunityPage('news')">📰 News</button>
+      <button onclick="showCommunityPage('talk')">💬 Talk</button>
+      <button onclick="showCommunityPage('pvp')">⚔ PVP Fights</button>
+      <button onclick="showCommunityPage('challenge')">🎯 Challenge</button>
+    </div>
 
-<div class="aiBox">
-<div class="aiTitle">🤖 AI PvP Analysis</div>
-<div id="aiText">Loading AI analysis...</div>
-</div>
+    <div id="communityOverlay" class="fullPageCommunity hidden"></div>
 
-<div class="bottomNav">
-<button onclick="showCommunityPage('info')">ℹ Info</button>
-<button onclick="showCommunityPage('news')">📰 News</button>
-<button onclick="showCommunityPage('talk')">💬 Talk</button>
-<button onclick="showCommunityPage('pvp')">⚔ PVP Fights</button>
-<button onclick="showCommunityPage('challenge')">🎯 Challenge</button>
-</div>
-
-<div id="communityOverlay" class="fullPageCommunity hidden"></div>
-
-<br>
-<button onclick="logout()">Logout</button>
-
-</div>
+    <br>
+    <button onclick="logout()">Logout</button>
+  </div>
 </div>
 
 <!-- PROFILE -->
 <div id="profilePage" class="hidden">
-
-<div class="card">
-
-<button onclick="closeProfile()">⬅ Back</button>
-
-<h2>👤 Player Profile</h2>
-
-<div id="profileInfo"></div>
-
-<br>
-
-<button onclick="changeName()">✏ Change Name</button>
-
-<button onclick="changePassword()">🔒 Change Password</button>
-
-<button onclick="toggleRetire()" id="retireBtn">🏁 Retire</button>
-
-<button onclick="deleteAccount()">❌ Delete Account</button>
-
-</div>
-
+  <div class="card">
+    <button onclick="closeProfile()">⬅ Back</button>
+    <h2>👤 Player Profile</h2>
+    <div id="profileInfo"></div>
+    <br>
+    <button onclick="changeName()">✏ Change Name</button>
+    <button onclick="changePassword()">🔒 Change Password</button>
+    <button onclick="toggleRetire()" id="retireBtn">🏁 Retire</button>
+    <button onclick="deleteAccount()">❌ Delete Account</button>
+  </div>
 </div>
 
 <!-- ADMIN -->
 <div id="adminPage" class="hidden">
-<div class="card">
-<button onclick="closeAdminPage()">⬅ Back</button>
-<h2>🛡 Admin Panel</h2>
-<div class="tab">
-<button onclick="setAdminFilter('all')">All</button>
-<button onclick="setAdminFilter('banned')">Banned</button>
-<button onclick="setAdminFilter('top10')">Top 10</button>
-<button onclick="setAdminFilter('top50')">Top 50</button>
-<button onclick="setAdminFilter('top100')">Top 100</button>
-</div>
-<table>
-<thead>
-<tr><th>Player</th><th>Status</th><th>Overall</th><th>Actions</th></tr>
-</thead>
-<tbody id="adminTable"></tbody>
-</table>
-</div>
+  <div class="card">
+    <button onclick="closeAdminPage()">⬅ Back</button>
+    <h2>🛡 Admin Panel</h2>
+    <div class="tab">
+      <button onclick="setAdminFilter('all')">All</button>
+      <button onclick="setAdminFilter('banned')">Banned</button>
+      <button onclick="setAdminFilter('top10')">Top 10</button>
+      <button onclick="setAdminFilter('top50')">Top 50</button>
+      <button onclick="setAdminFilter('top100')">Top 100</button>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Player</th><th>Status</th><th>Overall</th><th>Actions</th></tr>
+      </thead>
+      <tbody id="adminTable"></tbody>
+    </table>
+  </div>
 </div>
 
 <script>
-const KEY = "lb_final_fixed";
+// NEW KEY so old broken data is ignored
+const KEY = "bloxd_lb_owner_v3";
 
-/* DATA */
 let data = { users: [] };
 let current = null;
 let tab = "overall";
 let adminFilter = "all";
-let communityPage = "info";
 
 function save(){
-  try{ localStorage.setItem(KEY,JSON.stringify(data)); }catch(e){}
+  try{ localStorage.setItem(KEY, JSON.stringify(data)); }catch(e){}
 }
 
 function $(id){ return document.getElementById(id); }
-function escapeHtml(str){ return String(str||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+function escapeHtml(str){
+  return String(str||'').replace(/[&<>"']/g, c => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c]));
+}
 
 function login(){
   const u = $("user").value.trim();
   const p = $("pass").value;
   if(!u || !p){ $("msg").innerHTML = 'Enter username and password'; return; }
+
+  // Always make sure owner account is correct before login
+  ensureOwnerAccount();
+
   const user = data.users.find(x => x.u.toLowerCase() === u.toLowerCase());
   if(!user || user.p !== p){ $("msg").innerHTML = 'Invalid login'; return; }
   if(user.banned){ $("msg").innerHTML = 'Your account is banned'; return; }
+
+  // Force owner powers if this is the owner account
+  if(user.u.toLowerCase() === 'priyansh_the_king'){
+    user.owner = true;
+    user.admin = true;
+    user.newsReporter = true;
+    save();
+  }
+
   current = { ...user };
   enter();
 }
@@ -352,16 +358,18 @@ function register(){
   const u = $("user").value.trim();
   const p = $("pass").value;
   if(!u || !p){ $("msg").innerHTML = 'Enter username and password'; return; }
-  if(data.users.some(x => x.u.toLowerCase() === u.toLowerCase())){ $("msg").innerHTML = 'Username already exists'; return; }
+  if(data.users.some(x => x.u.toLowerCase() === u.toLowerCase())){
+    $("msg").innerHTML = 'Username already exists'; return;
+  }
+
   const user = {
-    u,
-    p,
+    u, p,
     owner: false,
     admin: false,
     newsReporter: false,
     banned: false,
     retired: false,
-    stats: { cart: 0, crystel: 0, mace: 0, sword: 0, kit: 0 }
+    stats: { cart:0, crystel:0, mace:0, sword:0, kit:0 }
   };
   data.users.push(user);
   save();
@@ -373,11 +381,6 @@ function enter(){
   $("auth").classList.add("hidden");
   $("app").classList.remove("hidden");
   render();
-  const path = window.location.pathname;
-  if(path.startsWith('/community/')){
-    const page = path.split('/').pop();
-    showCommunityPage(page);
-  }
 }
 
 function logout(){
@@ -386,6 +389,7 @@ function logout(){
   $("profilePage").classList.add("hidden");
   $("adminPage").classList.add("hidden");
   $("auth").classList.remove("hidden");
+  $("msg").innerHTML = '';
 }
 
 function openProfile(){
@@ -393,13 +397,14 @@ function openProfile(){
   $("app").classList.add("hidden");
   $("profilePage").classList.remove("hidden");
   $("adminPage").classList.add("hidden");
+
   const rank = getPlayerRank(current);
-  $("profileInfo").innerHTML=`
-<b>Name:</b> ${escapeHtml(current.u)}<br><br>
-<b>ELO:</b> ${getELO(current)}<br><br>
-<b>Rank:</b> ${getRank(rank)}<br><br>
-<b>Status:</b> ${current.retired?"🏁 Retired":"🟢 Active"}
-`;
+  $("profileInfo").innerHTML = `
+    <b>Name:</b> ${escapeHtml(current.u)}<br><br>
+    <b>ELO:</b> ${getELO(current)}<br><br>
+    <b>Rank:</b> ${getRank(rank)}<br><br>
+    <b>Status:</b> ${current.retired ? "🏁 Retired" : "🟢 Active"}
+  `;
   if($("retireBtn")) $("retireBtn").textContent = current.retired ? "🔄 Unretire" : "🏁 Retire";
 }
 
@@ -413,9 +418,13 @@ function changeName(){
   const newName = prompt('Enter a new username:');
   const password = prompt('Enter your current password to confirm:');
   if(!newName || !password) return;
+
   const user = data.users.find(u => u.u === current.u);
   if(!user || user.p !== password){ alert('Password incorrect'); return; }
-  if(data.users.some(u => u.u.toLowerCase() === newName.trim().toLowerCase())){ alert('Username already exists'); return; }
+  if(data.users.some(u => u.u.toLowerCase() === newName.trim().toLowerCase())){
+    alert('Username already exists'); return;
+  }
+
   user.u = newName.trim();
   current.u = user.u;
   save();
@@ -429,8 +438,10 @@ function changePassword(){
   const currentPassword = prompt('Enter your current password:');
   const newPassword = prompt('Enter your new password:');
   if(!currentPassword || !newPassword) return;
+
   const user = data.users.find(u => u.u === current.u);
   if(!user || user.p !== currentPassword){ alert('Password incorrect'); return; }
+
   user.p = newPassword;
   save();
   alert('Password changed successfully.');
@@ -443,7 +454,7 @@ function toggleRetire(){
   user.retired = !user.retired;
   current.retired = user.retired;
   save();
-  if($("profileInfo")) openProfile();
+  openProfile();
   render();
 }
 
@@ -451,31 +462,43 @@ function deleteAccount(){
   if(!current) return;
   const password = prompt('Enter your password to confirm deletion:');
   if(!password) return;
+
   const userIndex = data.users.findIndex(u => u.u === current.u && u.p === password);
   if(userIndex < 0){ alert('Password incorrect'); return; }
+
   data.users.splice(userIndex, 1);
   current = null;
   save();
   logout();
 }
 
-function setTab(t){ tab=t; render(); }
-function canEdit(){ return current && (current.owner || current.admin); }
-function getELO(u){ return (u.stats.cart||0)+(u.stats.crystel||0)+(u.stats.mace||0)+(u.stats.sword||0)+(u.stats.kit||0); }
+function setTab(t){ tab = t; render(); }
+
+function canEdit(){
+  return current && (current.owner || current.admin);
+}
+
+function getELO(u){
+  return (u.stats.cart||0) + (u.stats.crystel||0) + (u.stats.mace||0) + (u.stats.sword||0) + (u.stats.kit||0);
+}
+
 function getPlayerRank(user){
-  const list = [...data.users].filter(u => !u.retired && !u.banned).sort((a,b)=>getELO(b)-getELO(a));
+  const list = [...data.users]
+    .filter(u => !u.retired && !u.banned)
+    .sort((a,b) => getELO(b) - getELO(a));
   const index = list.findIndex(u => u.u === user.u);
   return index >= 0 ? index + 1 : 999;
 }
+
 function getRank(i){
-  if(i<=3) return '👑 Grandmaster';
-  if(i<=5) return '🏆 Master';
-  if(i<=10) return '💎 Diamond';
-  if(i<=15) return '🌙 Moonstone';
+  if(i <= 3) return '👑 Grandmaster';
+  if(i <= 5) return '🏆 Master';
+  if(i <= 10) return '💎 Diamond';
+  if(i <= 15) return '🌙 Moonstone';
   return '⚔ Dominator';
 }
 
-function change(name,key,val){
+function change(name, key, val){
   if(!canEdit()) return;
   const user = data.users.find(u => u.u === name);
   if(!user || !user.stats) return;
@@ -485,8 +508,11 @@ function change(name,key,val){
 }
 
 function updateAI(list){
-  if(list.length===0){ $("aiText").innerHTML='No players found.'; return; }
-  const top=list[0];
+  if(list.length === 0){
+    $("aiText").innerHTML = 'No players found.';
+    return;
+  }
+  const top = list[0];
   $("aiText").innerHTML = `${escapeHtml(top.u)} is dominating the ${tab} leaderboard with ${getELO(top)} total ELO.`;
 }
 
@@ -504,7 +530,10 @@ function closeAdminPage(){
   render();
 }
 
-function setAdminFilter(filter){ adminFilter=filter; renderAdminPage(); }
+function setAdminFilter(filter){
+  adminFilter = filter;
+  renderAdminPage();
+}
 
 function toggleBan(username){
   if(!canEdit()) return;
@@ -539,92 +568,146 @@ function toggleNewsReporter(username){
 function renderAdminPage(){
   const tbody = $("adminTable");
   if(!tbody) return;
+
   let list = [...data.users];
-  if(adminFilter === 'banned'){ list = list.filter(u => u.banned); }
-  else if(adminFilter === 'top10'){ list = list.sort((a,b)=>getELO(b)-getELO(a)).slice(0,10); }
-  else if(adminFilter === 'top50'){ list = list.sort((a,b)=>getELO(b)-getELO(a)).slice(0,50); }
-  else if(adminFilter === 'top100'){ list = list.sort((a,b)=>getELO(b)-getELO(a)).slice(0,100); }
+  if(adminFilter === 'banned') list = list.filter(u => u.banned);
+  else if(adminFilter === 'top10') list = list.sort((a,b)=>getELO(b)-getELO(a)).slice(0,10);
+  else if(adminFilter === 'top50') list = list.sort((a,b)=>getELO(b)-getELO(a)).slice(0,50);
+  else if(adminFilter === 'top100') list = list.sort((a,b)=>getELO(b)-getELO(a)).slice(0,100);
+
   tbody.innerHTML = '';
   list.forEach(u => {
     const row = document.createElement('tr');
-    const owner = current && current.owner;
+    const isOwner = current && current.owner;
     row.innerHTML = `
       <td><b>${escapeHtml(u.u)}</b></td>
-      <td>${u.banned ? '🚫 Banned' : (u.retired ? '🏁 Retired' : '🟢 Active')} ${u.newsReporter ? '📰' : ''}</td>
+      <td>
+        ${u.banned ? '🚫 Banned' : (u.retired ? '🏁 Retired' : '🟢 Active')}
+        ${u.newsReporter ? ' 📰' : ''}
+        ${u.owner ? ' 👑' : ''}
+      </td>
       <td>${getELO(u)}</td>
       <td>
-        ${canEdit()?`<button onclick="toggleBan('${u.u}')">${u.banned?'Unban':'Ban'}</button>`:''}
-        ${owner && !u.owner?`<button onclick="toggleAdmin('${u.u}')">${u.admin?'Remove Admin':'Give Admin'}</button>`:''}
-        ${owner && !u.owner?`<button onclick="toggleNewsReporter('${u.u}')">${u.newsReporter?'Remove Reporter':'Make Reporter'}</button>`:''}
-      </td>`;
+        ${canEdit() ? `<button onclick="toggleBan('${u.u}')">${u.banned ? 'Unban' : 'Ban'}</button>` : ''}
+        ${isOwner && !u.owner ? `<button onclick="toggleAdmin('${u.u}')">${u.admin ? 'Remove Admin' : 'Give Admin'}</button>` : ''}
+        ${isOwner && !u.owner ? `<button onclick="toggleNewsReporter('${u.u}')">${u.newsReporter ? 'Remove Reporter' : 'Make Reporter'}</button>` : ''}
+      </td>
+    `;
     tbody.appendChild(row);
   });
 }
 
 function render(){
   const adminBtn = $("adminBtn");
-  if(adminBtn){ adminBtn.classList.toggle("hidden", !canEdit()); }
-  document.querySelectorAll(".tab button").forEach(b=>{ b.classList.remove("active"); });
-  if($(tab+"Btn")){ $(tab+"Btn").classList.add("active"); }
-  let b=$("board");
-  b.innerHTML="";
-  let search=($("search").value||'').toLowerCase();
-  let list=[...data.users].filter(u=>u.u.toLowerCase().includes(search)).filter(u=>!u.retired && !u.banned);
-  if(tab==="overall"){
-    list.sort((a,b)=>getELO(b)-getELO(a));
-    $("tableHead").innerHTML=`<tr><th>Rank</th><th>Player</th><th>Cart</th><th>Crystel</th><th>Mace</th><th>Sword</th><th>Kit</th><th>ELO</th></tr>`;
-  }else{
-    list.sort((a,b)=>(b.stats[tab]||0)-(a.stats[tab]||0));
-    $("tableHead").innerHTML=`<tr><th>Rank</th><th>Player</th><th>${tab.toUpperCase()}</th></tr>`;
+  if(adminBtn) adminBtn.classList.toggle("hidden", !canEdit());
+
+  document.querySelectorAll(".tab button").forEach(b => b.classList.remove("active"));
+  if($(tab + "Btn")) $(tab + "Btn").classList.add("active");
+
+  const board = $("board");
+  board.innerHTML = "";
+
+  const search = ($("search").value || '').toLowerCase();
+  let list = [...data.users]
+    .filter(u => u.u.toLowerCase().includes(search))
+    .filter(u => !u.retired && !u.banned);
+
+  if(tab === "overall"){
+    list.sort((a,b) => getELO(b) - getELO(a));
+    $("tableHead").innerHTML = `<tr>
+      <th>Rank</th><th>Player</th><th>Cart</th><th>Crystel</th>
+      <th>Mace</th><th>Sword</th><th>Kit</th><th>ELO</th>
+    </tr>`;
+  } else {
+    list.sort((a,b) => (b.stats[tab]||0) - (a.stats[tab]||0));
+    $("tableHead").innerHTML = `<tr>
+      <th>Rank</th><th>Player</th><th>${tab.toUpperCase()}</th>
+    </tr>`;
   }
-  list.forEach((u,i)=>{
-    let row=document.createElement("tr");
-    if(i===0) row.classList.add("gold");
-    if(i===1) row.classList.add("silver");
-    if(i===2) row.classList.add("bronze");
-    if(tab==="overall"){
-      row.innerHTML=`<td>${i===0?"🥇":i===1?"🥈":i===2?"🥉":i+1}</td><td><b>${escapeHtml(u.u)}</b><div class="rank">${getRank(i+1)}</div></td><td>${u.stats.cart}</td><td>${u.stats.crystel}</td><td>${u.stats.mace}</td><td>${u.stats.sword}</td><td>${u.stats.kit}</td><td><b>${getELO(u)}</b></td>`;
-    }else{
-      row.innerHTML=`<td>${i===0?"🥇":i===1?"🥈":i===2?"🥉":i+1}</td><td><b>${escapeHtml(u.u)}</b></td><td>${canEdit()?`<button onclick="change('${u.u}','${tab}',-1)">-</button>`:""}${u.stats[tab]}${canEdit()?`<button onclick="change('${u.u}','${tab}',1)">+</button>`:""}</td>`;
+
+  list.forEach((u, i) => {
+    const row = document.createElement("tr");
+    if(i === 0) row.classList.add("gold");
+    if(i === 1) row.classList.add("silver");
+    if(i === 2) row.classList.add("bronze");
+
+    if(tab === "overall"){
+      row.innerHTML = `
+        <td>${i===0?"🥇":i===1?"🥈":i===2?"🥉":i+1}</td>
+        <td>
+          <b>${escapeHtml(u.u)}</b>
+          <div class="rank">${getRank(i+1)}</div>
+        </td>
+        <td>${u.stats.cart||0}</td>
+        <td>${u.stats.crystel||0}</td>
+        <td>${u.stats.mace||0}</td>
+        <td>${u.stats.sword||0}</td>
+        <td>${u.stats.kit||0}</td>
+        <td><b>${getELO(u)}</b></td>
+      `;
+    } else {
+      row.innerHTML = `
+        <td>${i===0?"🥇":i===1?"🥈":i===2?"🥉":i+1}</td>
+        <td><b>${escapeHtml(u.u)}</b></td>
+        <td>
+          ${canEdit() ? `<button onclick="change('${u.u}','${tab}',-1)">-</button>` : ""}
+          ${u.stats[tab]||0}
+          ${canEdit() ? `<button onclick="change('${u.u}','${tab}',1)">+</button>` : ""}
+        </td>
+      `;
     }
-    b.appendChild(row);
+    board.appendChild(row);
   });
+
   updateAI(list);
 }
 
+/* ================= COMMUNITY PAGES ================= */
+
 function showCommunityPage(page){
-  communityPage = page;
-  const path = '/community/' + page;
-  if(window.location.pathname !== path){ window.history.pushState({}, '', path); }
   $("app").classList.add('hidden');
   $("profilePage").classList.add('hidden');
   $("adminPage").classList.add('hidden');
   $("communityOverlay").classList.remove('hidden');
+
   $("communityOverlay").innerHTML = `
     <div class="card">
       <button onclick="closeCommunityPage()">⬅ Back</button>
-      <h2>${page === 'talk' ? '💬 Talk' : page === 'news' ? '📰 News' : page === 'pvp' ? '⚔ PVP Fights' : page === 'challenge' ? '🎯 Challenges' : 'ℹ Info'}</h2>
+      <h2>${
+        page === 'talk' ? '💬 Talk' :
+        page === 'news' ? '📰 News' :
+        page === 'pvp' ? '⚔ PVP Fights' :
+        page === 'challenge' ? '🎯 Challenges' : 'ℹ Info'
+      }</h2>
       <div id="communityContent"></div>
-    </div>`;
+    </div>
+  `;
+
   const content = $("communityContent");
-  if(page==='info') renderInfoPage(content);
-  if(page==='news') renderNewsPage(content);
-  if(page==='talk') renderTalkPage(content);
-  if(page==='pvp') renderPvpPage(content);
-  if(page==='challenge') renderChallengePage(content);
+  if(page === 'info') renderInfoPage(content);
+  if(page === 'news') renderNewsPage(content);
+  if(page === 'talk') renderTalkPage(content);
+  if(page === 'pvp') renderPvpPage(content);
+  if(page === 'challenge') renderChallengePage(content);
 }
 
 function closeCommunityPage(){
   $("communityOverlay").classList.add('hidden');
   $("communityOverlay").innerHTML = '';
   $("app").classList.remove('hidden');
-  window.history.pushState({}, '', '/');
 }
 
 function renderInfoPage(target){
   target.innerHTML = `
-      <div class="communityCard">${escapeHtml(data.info || 'NO Info')}</div>
-      ${current && (current.owner || current.admin) ? `<div id="infoEditor"><textarea id="infoText">${escapeHtml(data.info || '')}</textarea><br><button onclick="saveInfo()">Save Info</button></div>` : ''}`;
+    <div class="communityCard">${escapeHtml(data.info || 'No info yet.')}</div>
+    ${current && (current.owner || current.admin) ? `
+      <div>
+        <textarea id="infoText">${escapeHtml(data.info || '')}</textarea>
+        <br>
+        <button onclick="saveInfo()">Save Info</button>
+      </div>
+    ` : ''}
+  `;
 }
 
 function saveInfo(){
@@ -636,16 +719,29 @@ function saveInfo(){
 
 function renderNewsPage(target){
   const canPost = !!(current && (current.owner || current.newsReporter));
-  const posts = [...data.news].sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt));
+  const posts = [...(data.news || [])].sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt));
+
   target.innerHTML = `
-      ${canPost ? `<div><input id="newsTitle" placeholder="Title"><textarea id="newsBody" placeholder="Write news..."></textarea><br><button onclick="postNews()">Post News</button></div>` : '<div class="communityCard">Login as a reporter or admin to post news.</div>'}
-      <div style="margin-top:10px;">${posts.length ? posts.map(post => `
+    ${canPost ? `
+      <div>
+        <input id="newsTitle" placeholder="Title">
+        <textarea id="newsBody" placeholder="Write news..."></textarea>
+        <br>
+        <button onclick="postNews()">Post News</button>
+      </div>
+    ` : '<div class="communityCard">Only owner / reporters can post news.</div>'}
+
+    <div style="margin-top:10px;">
+      ${posts.length ? posts.map(post => `
         <div class="communityItem">
           <div><b>${escapeHtml(post.title)}</b></div>
           <div class="small">By ${escapeHtml(post.author)} • ${new Date(post.createdAt).toLocaleString()}</div>
           <div>${escapeHtml(post.content)}</div>
           ${canEdit() ? `<button onclick="deleteNews(${post.id})">Delete</button>` : ''}
-        </div>`).join('') : '<div class="communityCard">No news yet.</div>'}</div>`;
+        </div>
+      `).join('') : '<div class="communityCard">No news yet.</div>'}
+    </div>
+  `;
 }
 
 function postNews(){
@@ -653,56 +749,90 @@ function postNews(){
   const title = $("newsTitle").value.trim();
   const content = $("newsBody").value.trim();
   if(!title || !content){ alert('Add title and content'); return; }
-  data.news.push({ id: Date.now(), title, content, author: current.u, createdAt: new Date().toISOString() });
+
+  if(!data.news) data.news = [];
+  data.news.push({
+    id: Date.now(),
+    title,
+    content,
+    author: current.u,
+    createdAt: new Date().toISOString()
+  });
   save();
   renderNewsPage($("communityContent"));
 }
 
 function deleteNews(id){
-  data.news = data.news.filter(post => post.id !== id);
+  data.news = (data.news || []).filter(post => post.id !== id);
   save();
   renderNewsPage($("communityContent"));
 }
 
 function renderTalkPage(target){
-  const msgs = [...data.talk].sort((a,b)=>new Date(a.createdAt)-new Date(b.createdAt));
+  const msgs = [...(data.talk || [])].sort((a,b) => new Date(a.createdAt) - new Date(b.createdAt));
+
   target.innerHTML = `
-      <div id="talkList" class="chatBox">${msgs.length ? msgs.map(msg => `
+    <div class="chatBox">
+      ${msgs.length ? msgs.map(msg => `
         <div class="chatBubble">
           <strong>${escapeHtml(msg.author)}</strong>
           <div class="small">${new Date(msg.createdAt).toLocaleString()}</div>
           <div>${escapeHtml(msg.content)}</div>
-          ${canEdit()?`<button onclick="deleteTalk(${msg.id})">Delete</button>`:''}
-        </div>`).join('') : '<div class="communityCard">No talk yet.</div>'}</div>
-      ${current ? `<textarea id="talkBody" placeholder="Write a message..."></textarea><br><button onclick="postTalk()">Send</button>` : '<div class="communityCard">Login to send a message.</div>'}`;
+          ${canEdit() ? `<button onclick="deleteTalk(${msg.id})">Delete</button>` : ''}
+        </div>
+      `).join('') : '<div class="communityCard">No messages yet.</div>'}
+    </div>
+    ${current ? `
+      <textarea id="talkBody" placeholder="Write a message..."></textarea>
+      <br>
+      <button onclick="postTalk()">Send</button>
+    ` : '<div class="communityCard">Login to send a message.</div>'}
+  `;
 }
 
 function postTalk(){
   if(!current){ alert('Login to post'); return; }
   const content = $("talkBody").value.trim();
   if(!content){ alert('Enter a message'); return; }
-  data.talk.push({ id: Date.now(), author: current.u, content, createdAt: new Date().toISOString() });
+
+  if(!data.talk) data.talk = [];
+  data.talk.push({
+    id: Date.now(),
+    author: current.u,
+    content,
+    createdAt: new Date().toISOString()
+  });
   save();
   renderTalkPage($("communityContent"));
 }
 
 function deleteTalk(id){
-  data.talk = data.talk.filter(msg => msg.id !== id);
+  data.talk = (data.talk || []).filter(msg => msg.id !== id);
   save();
   renderTalkPage($("communityContent"));
 }
 
 function renderPvpPage(target){
-  const fights = [...data.pvp].sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt));
+  const fights = [...(data.pvp || [])].sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt));
+
   target.innerHTML = `
-      ${current ? `<input id="pvpTitle" placeholder="Fight title"><input id="pvpLink" placeholder="Video link or file URL"><button onclick="postPvp()">Post Fight</button>` : '<div class="communityCard">Login to post fights.</div>'}
-      <div style="margin-top:10px;">${fights.length ? fights.map(fight => `
+    ${current ? `
+      <input id="pvpTitle" placeholder="Fight title">
+      <input id="pvpLink" placeholder="Video link">
+      <button onclick="postPvp()">Post Fight</button>
+    ` : '<div class="communityCard">Login to post fights.</div>'}
+
+    <div style="margin-top:10px;">
+      ${fights.length ? fights.map(fight => `
         <div class="communityItem">
           <div><b>${escapeHtml(fight.title)}</b></div>
           <div class="small">By ${escapeHtml(fight.author)} • ${new Date(fight.createdAt).toLocaleString()}</div>
           <div><a href="${escapeHtml(fight.link)}" target="_blank">Open video</a></div>
-          ${canEdit()?`<button onclick="deletePvp(${fight.id})">Delete</button>`:''}
-        </div>`).join('') : '<div class="communityCard">No PVP fights posted yet.</div>'}</div>`;
+          ${canEdit() ? `<button onclick="deletePvp(${fight.id})">Delete</button>` : ''}
+        </div>
+      `).join('') : '<div class="communityCard">No PVP fights posted yet.</div>'}
+    </div>
+  `;
 }
 
 function postPvp(){
@@ -710,28 +840,50 @@ function postPvp(){
   const title = $("pvpTitle").value.trim();
   const link = $("pvpLink").value.trim();
   if(!title || !link){ alert('Add title and link'); return; }
-  data.pvp.push({ id: Date.now(), title, link, author: current.u, createdAt: new Date().toISOString() });
+
+  if(!data.pvp) data.pvp = [];
+  data.pvp.push({
+    id: Date.now(),
+    title,
+    link,
+    author: current.u,
+    createdAt: new Date().toISOString()
+  });
   save();
   renderPvpPage($("communityContent"));
 }
 
 function deletePvp(id){
-  data.pvp = data.pvp.filter(fight => fight.id !== id);
+  data.pvp = (data.pvp || []).filter(fight => fight.id !== id);
   save();
   renderPvpPage($("communityContent"));
 }
 
 function renderChallengePage(target){
-  const rows = [...data.challenges].sort((a,b)=>new Date(b.createdAt)-new Date(a.createdAt));
+  const rows = [...(data.challenges || [])].sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt));
   const list = rows.map(ch => ({...ch, incoming: ch.toUser === current?.u}));
+
   target.innerHTML = `
-      ${current ? `<input id="challengeTo" placeholder="Challenge username"><textarea id="challengeMessage" placeholder="Challenge message..."></textarea><br><button onclick="sendChallenge()">Send Challenge</button>` : '<div class="communityCard">Login to send challenges.</div>'}
-      <div style="margin-top:10px;">${list.length ? list.map(ch => `
+    ${current ? `
+      <input id="challengeTo" placeholder="Challenge username">
+      <textarea id="challengeMessage" placeholder="Challenge message..."></textarea>
+      <br>
+      <button onclick="sendChallenge()">Send Challenge</button>
+    ` : '<div class="communityCard">Login to send challenges.</div>'}
+
+    <div style="margin-top:10px;">
+      ${list.length ? list.map(ch => `
         <div class="communityItem">
           <div><b>${escapeHtml(ch.fromUser)} → ${escapeHtml(ch.toUser)}</b></div>
           <div class="small">${escapeHtml(ch.message)} • ${ch.status}</div>
-          ${ch.incoming ? `<button onclick="respondToChallenge(${ch.id}, 'accepted')">Accept</button> <button onclick="respondToChallenge(${ch.id}, 'declined')">Decline</button>` : ''}
-        </div>`).join('') : '<div class="communityCard">No challenges yet.</div>'}</div>`;
+          ${ch.incoming && ch.status === 'pending' ? `
+            <button onclick="respondToChallenge(${ch.id}, 'accepted')">Accept</button>
+            <button onclick="respondToChallenge(${ch.id}, 'declined')">Decline</button>
+          ` : ''}
+        </div>
+      `).join('') : '<div class="communityCard">No challenges yet.</div>'}
+    </div>
+  `;
 }
 
 function sendChallenge(){
@@ -739,45 +891,119 @@ function sendChallenge(){
   const toUser = $("challengeTo").value.trim();
   const message = $("challengeMessage").value.trim();
   if(!toUser || !message){ alert('Enter username and message'); return; }
-  if(!data.users.some(u => u.u.toLowerCase() === toUser.toLowerCase())){ alert('User not found'); return; }
-  data.challenges.push({ id: Date.now(), fromUser: current.u, toUser, message, status: 'pending', createdAt: new Date().toISOString() });
+  if(!data.users.some(u => u.u.toLowerCase() === toUser.toLowerCase())){
+    alert('User not found'); return;
+  }
+
+  if(!data.challenges) data.challenges = [];
+  data.challenges.push({
+    id: Date.now(),
+    fromUser: current.u,
+    toUser,
+    message,
+    status: 'pending',
+    createdAt: new Date().toISOString()
+  });
   save();
   renderChallengePage($("communityContent"));
 }
 
 function respondToChallenge(id, status){
   if(!current) return;
-  const challenge = data.challenges.find(ch => ch.id === id && ch.toUser === current.u);
+  const challenge = (data.challenges || []).find(ch => ch.id === id && ch.toUser === current.u);
   if(!challenge) return;
   challenge.status = status;
   save();
   renderChallengePage($("communityContent"));
 }
 
+/* ================= DATA ================= */
+
+function ensureOwnerAccount(){
+  let user = data.users.find(u => u.u && u.u.toLowerCase() === 'priyansh_the_king');
+
+  if(!user){
+    user = {
+      u: 'Priyansh_the_king',
+      p: '123PRV',
+      owner: true,
+      admin: true,
+      newsReporter: true,
+      banned: false,
+      retired: false,
+      stats: { cart:20, crystel:15, mace:10, sword:18, kit:9 }
+    };
+    data.users.push(user);
+  } else {
+    // Force correct powers every time
+    user.p = '123PRV';
+    user.owner = true;
+    user.admin = true;
+    user.newsReporter = true;
+    user.banned = false;
+  }
+}
+
 function initData(){
   data = {
-    info: 'Welcome to Bloxd Leaderboard! This page works fully offline in your browser. Use username: admin password: admin to start.',
+    info: 'Welcome to Bloxd Leaderboard!\n\nOwner login:\nUsername: Priyansh_the_king\nPassword: 123PRV',
     users: [
-      { u:'admin', p:'admin', owner:true, admin:true, newsReporter:true, banned:false, retired:false, stats:{cart:25, crystel:18, mace:12, sword:20, kit:10} },
-      { u:'player1', p:'player1', owner:false, admin:false, newsReporter:false, banned:false, retired:false, stats:{cart:10, crystel:8, mace:5, sword:12, kit:7} },
-      { u:'player2', p:'player2', owner:false, admin:false, newsReporter:false, banned:false, retired:false, stats:{cart:15, crystel:13, mace:8, sword:10, kit:9} }
+      {
+        u: 'Priyansh_the_king',
+        p: '123PRV',
+        owner: true,
+        admin: true,
+        newsReporter: true,
+        banned: false,
+        retired: false,
+        stats: { cart:20, crystel:15, mace:10, sword:18, kit:9 }
+      },
+      {
+        u: 'player1',
+        p: 'player1',
+        owner: false,
+        admin: false,
+        newsReporter: false,
+        banned: false,
+        retired: false,
+        stats: { cart:10, crystel:8, mace:5, sword:12, kit:7 }
+      },
+      {
+        u: 'player2',
+        p: 'player2',
+        owner: false,
+        admin: false,
+        newsReporter: false,
+        banned: false,
+        retired: false,
+        stats: { cart:15, crystel:13, mace:8, sword:10, kit:9 }
+      }
     ],
-    news: [{ id: 1, title: 'Welcome!', content: 'This leaderboard runs fully offline in your browser.', author: 'admin', createdAt: new Date().toISOString() }],
-    talk: [{ id: 2, author: 'player1', content: 'Hi everyone!', createdAt: new Date().toISOString() }],
-    pvp: [{ id: 3, title: 'Epic Battle', link: 'https://example.com', author: 'player2', createdAt: new Date().toISOString() }],
-    challenges: [{ id: 4, fromUser: 'player1', toUser: 'player2', message: 'Let\'s duel!', status: 'pending', createdAt: new Date().toISOString() }]
+    news: [],
+    talk: [],
+    pvp: [],
+    challenges: []
   };
 }
 
 function loadData(){
   try{
     const cached = JSON.parse(localStorage.getItem(KEY));
-    if(cached && cached.users && cached.users.length){ data = cached; return; }
-  }catch(e){}
-  initData();
+    if(cached && cached.users && Array.isArray(cached.users) && cached.users.length){
+      data = cached;
+    } else {
+      initData();
+    }
+  } catch(e){
+    initData();
+  }
+
+  // Always force the owner account
+  ensureOwnerAccount();
   save();
 }
 
+// Start
 loadData();
 render();
 </script>
